@@ -1,0 +1,65 @@
+{% load static %}
+{% load portfolio_tags %}
+
+<section id="projects" class="portfolio-mf sect-pt4 route">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="title-box text-center">
+                    <h3 class="title-a">
+                        Projects
+                    </h3>
+                    <p class="subtitle-a"></p>
+                    <div class="line-mf"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            {% get_projects as projects %}
+            {% for project in projects %}
+                <div class="col-md-4">
+                    <div class="work-box">
+                        {% with first_photo=project.photos.first %}
+                            {% if first_photo %}
+                                <a href="{{ first_photo.image.url }}" data-lightbox="gallery-{{ project.id }}">
+                                    <div class="work-img">
+                                        <img src="{{ first_photo.image.url }}" alt="photo" class="img-fluid project-card-img">
+                                    </div>
+                                </a>
+                            {% else %}
+                                <div class="work-img">
+                                    <img src="{% static 'img/no-photo.jpg' %}" alt="Нет фото" class="img-fluid">
+                                </div>
+                            {% endif %}
+                        {% endwith %}
+
+                        {% for photo in project.photos.all %}
+                            {% if not forloop.first %}
+                                <a href="{{ photo.image.url }}" data-lightbox="gallery-{{ project.id }}" style="display: none;"></a>
+                            {% endif %}
+                        {% endfor %}
+
+                        <div class="work-content">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <h2 class="w-title">{{ project.title }}</h2>
+                                    <div class="w-more">
+                                        <a href="{{ project.link }}" target="_blank">{{ project.link|truncatechars:27 }}</a>
+                                        / <span class="w-date">{{ project.created_at|date:"d.m.Y" }}</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="w-like">
+                                        <span class="ion-ios-plus-outline"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+

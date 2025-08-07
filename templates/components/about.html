@@ -1,0 +1,105 @@
+{% load static %}
+{% load portfolio_tags %}
+{% get_about as abouts %}
+{% for about in abouts %}
+<section id="about" class="about-mf sect-pt4 route">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="box-shadow-full">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-sm-6 col-md-5">
+                                    <div class="about-img">
+                                        <img src="{{about.get_photo}}" class="img-fluid rounded b-shadow-a" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-7">
+                                    <div class="about-info">
+                                        <p><span class="title-s">Name: </span> <span>{{about.name}}</span></p>
+                                        <p><span class="title-s">Profile: </span> <span>{{about.profile}}</span></p>
+                                        <p><span class="title-s">Address: </span> <span>{{about.address}}</span>
+                                        <p><span class="title-s">Education: </span> <span>{{about.education}}</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skill-mf">
+                                <p class="title-s">Skills:</p>
+                                <span>DJANGO</span> <span class="pull-right">35%</span>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 35%;" aria-valuenow="35"
+                                         aria-valuemin="0"
+                                         aria-valuemax="100"></div>
+                                </div>
+                                <span>PYTHON</span> <span class="pull-right">35%</span>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 35%" aria-valuenow="35"
+                                         aria-valuemin="0"
+                                         aria-valuemax="100"></div>
+                                </div>
+                                <span>REST FRAMEWORK</span> <span class="pull-right">30%</span>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 30%" aria-valuenow="30"
+                                         aria-valuemin="0"
+                                         aria-valuemax="100"></div>
+                                </div>
+                                <span>GIT</span> <span class="pull-right">30%</span>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 30%" aria-valuenow="30"
+                                         aria-valuemin="0"
+                                         aria-valuemax="100"></div>
+                                </div>
+                                <span>PostgreSQL/MYSQL</span> <span class="pull-right">30%</span>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 30%" aria-valuenow="30"
+                                         aria-valuemin="0"
+                                         aria-valuemax="100"></div>
+                                </div>
+                                <span>Python Telegram Bot</span> <span class="pull-right">30%</span>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 30%" aria-valuenow="30"
+                                         aria-valuemin="0"
+                                         aria-valuemax="100"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="about-me pt-4 pt-md-0">
+                                <div class="title-box-2">
+                                    <h5 class="title-left">
+                                        {{about.title}}
+                                    </h5>
+                                </div>
+                                <p class="lead">
+                                    {{about.description}}
+                                </p>
+                                <div class="title-box-2">
+                                    <h5 class="title-left">
+                                        {{about.goals}}
+                                    </h5>
+                                </div>
+                                <p class="lead">
+                                    <strong>1)</strong> {{about.desc1}}
+                                </p>
+                                <p class="lead">
+                                    <strong>2)</strong> {{about.desc2}}
+                                </p>
+                                <p class="lead">
+                                    <strong>3)</strong> {{about.desc3}}
+                                </p>
+                                <p class="lead">
+                                    <strong>4)</strong> {{about.desc4}}
+                                </p>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endfor %}

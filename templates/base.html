@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!--head-->
+{% include 'components/head.html'%}
+<!--head-->
+
+<body id="page-top">
+
+<!--/ Nav Star /-->
+{% include 'components/navbar.html' %}
+<!--/ Nav End /-->
+
+<!--/ Intro Skew Star /-->
+{% include 'components/skew.html' %}
+<!--/ Intro Skew End /-->
+
+
+<!--about start-->
+{% include 'components/about.html' %}
+<!--about end-->
+
+
+
+<!--/ Section Portfolio Star /-->
+{% include 'components/experience.html' %}
+<!--/ Section Portfolio End /-->
+
+{% include 'components/projects.html' %}
+
+
+<!--/ Section Contact-Footer Star /-->
+<section id="contact" class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(img/overlay-bg.jpg)">
+<footer>
+    <h3>Send us a message</h3>
+    <form method="post" action="{% url 'send_email' %}">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Your Name" required><br>
+        <input type="email" name="email" placeholder="Email address" required><br>
+        <textarea name="message" placeholder="Your message" required></textarea><br>
+        <button type="submit">Send</button>
+    </form>
+</footer>
+</section>
+<!--/ Section Contact-footer End /-->
+
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<div id="preloader"></div>
+
+<!-- JavaScript Libraries -->
+<script src="{% static 'lib/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'lib/jquery/jquery-migrate.min.js' %}"></script>
+<script src="{% static 'lib/popper/popper.min.js' %}"></script>
+<script src="{% static 'lib/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'lib/counterup/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'lib/counterup/jquery.counterup.js' %}"></script>
+<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
+<script src="{% static 'lib/typed/typed.min.js' %}"></script>
+<!-- Contact Form JavaScript File -->
+<script src="{% static 'contactform/contactform.js' %}"></script>
+
+<!-- Template Main Javascript File -->
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>
